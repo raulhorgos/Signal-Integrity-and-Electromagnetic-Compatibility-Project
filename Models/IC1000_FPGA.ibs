@@ -1,0 +1,126 @@
+|************************************************************************
+| IBIS file IC1000_FPGA.ibs 
+|************************************************************************
+|
+[IBIS Ver]       5.1
+[Comment Char]   |_char
+[File Name]      IC1000_FPGA.ibs
+[File Rev]       1.1
+[Date]           Wed March 26
+[Source]         TIEplus
+[Notes]          
+[Disclaimer]                             IMPORTANT NOTICE
+  This information is provided on an AS IS basis and without warranty.      
+  IN NO EVENT SHALL TIEplus BE LIABLE FOR INCIDENTAL OR CONSEQUENTIAL     
+  DAMAGES ARISING FROM USE OF THIS INFORMATION. THIS DISCLAIMER OF          
+  WARRANTY EXTENDS TO THE USER OF THE INFORMATION, AND TO THEIR CUSTOMERS   
+  OR USERS OF PRODUCTS  AND IS IN LIEU OF ALL WARRANTIES WHETHER EXPRESS,   
+  IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTPCIELITY    
+  OR FITNESS FOR PARTICULAR PURPOSE.                                        
+|
+|****************************************************************
+|                IC1000_FPGA                
+|****************************************************************
+|
+[Component]        IC1000_FPGA
+[Manufacturer]     TIEplus
+[Package]
+| variable      typ                 min                 max                 
+R_pkg           607.28m             41.43m              1364.09m
+L_pkg           6.57nH              2.50nH              10.98nH
+C_pkg           2.70pF              0.35pF              3.95pF       
+|
+[Pin] signal_name                              model_name                               R_pin     L_pin     C_pin    
+A7    HS_RX0_P                               PCIE_DIFF                                0.60799   3.616e-09 1.350e-12
+A9    HS_RX1_P                               PCIE_DIFF                                0.54622   3.626e-09 1.253e-12
+A11   HS_RX2_P                               PCIE_DIFF                                0.56841   3.584e-09 1.412e-12
+A13   HS_TX0_P                               PCIE_DIFF                                0.52662   3.690e-09 1.254e-12
+B7    HS_RX0_N                               PCIE_DIFF                                0.48529   3.796e-09 1.403e-12
+B9    HS_RX1_N                               PCIE_DIFF                                0.60984   3.658e-09 1.420e-12 
+B11   HS_RX2_N                               PCIE_DIFF                                0.50879   3.796e-09 1.411e-12
+B13   HS_TX0_N                               PCIE_DIFF                                0.60644   3.657e-09 1.429e-12
+E11   HS_TX1_P                               PCIE_DIFF                                0.52862   3.450e-09 1.344e-12
+E13   HS_TX2_P                               PCIE_DIFF                                0.51568   3.423e-09 1.322e-12
+F11   HS_TX1_N                               PCIE_DIFF                                0.45692   3.235e-09 1.342e-12
+F13   HS_TX2_N                               PCIE_DIFF                                0.54592   3.258e-09 1.359e-12
+|
+[Diff Pin]  inv_pin  vdiff  tdelay_typ tdelay_min tdelay_max         
+A7          B7       NA        NA        NA        NA             
+A9          B9       NA        NA        NA        NA    
+A11         B11      NA        NA        NA        NA             
+A13         B13      NA        NA        NA        NA 
+E11         F11      NA        NA        NA        NA             
+E13         F13      NA        NA        NA        NA                       
+|
+|****************************************************************
+|*                 Model Selector                               *
+|****************************************************************
+|
+[Model Selector] PCIE_DIFF                              
+PCIE_out                                  PCIE Serdes output
+PCIE_in                                   PCIE Serdes input
+|
+[Model] PCIE_in
+Model_type  Input
+Vinl=0.4
+Vinh=0.6
+|
+| variable                                  typ         min         max
+C_comp                                      0.0pF      0.0pF      0.0pF
+[Temperature Range]                         20          20          20        
+[Voltage range]                             1.0         1.0         1.0        
+|
+|******************************************************************************
+[GND Clamp]
+|
+|                       Voltage              I(typ)      I(min)      I(max)
+|
+                        -1.0000e+00         -2.0000e-02 -2.3529e-02 -1.7391e-02
+                        0.0000e-00           0.0000e-00  0.0000e-00  0.0000e-00
+                        1.0000e+00           2.0000e-02  2.3529e-02  1.7391e-02
+|
+|******************************************************************************
+|
+| End [Model] PCIE_in
+|
+[Model] PCIE_out
+Model_type  Output
+Polarity Non-Inverting
+Vmeas =     0.5
+|
+|
+| variable                                  typ         min         max
+C_comp                                      0.0pF      0.0pF      0.0pF
+[Temperature Range]                         20          20          20        
+[Voltage range]                             1.0         1.0         1.0        
+|
+|******************************************************************************
+[Pulldown]
+|
+|                       Voltage              I(typ)      I(min)      I(max)
+|                                            100 Ohm     85 Ohm      115 Ohm
+                       -1.0000e+00          -2.0000e-02 -2.3529e-02 -1.7391e-02
+                        0.0000e-00           0.0000e-00  0.0000e-00  0.0000e-00
+                        1.0000e+00           2.0000e-02  2.3529e-02  1.7391e-02
+|
+|******************************************************************************
+[Pullup]
+|
+|                       Voltage              I(typ)      I(min)      I(max)
+|
+                       -1.0000e+00           2.0000e-02  2.3529e-02  1.7391e-02
+                        0.0000e-00           0.0000e-00  0.0000e-00  0.0000e-00
+                        1.0000e+00          -2.0000e-02 -2.3529e-02 -1.7391e-02
+|
+|******************************************************************************
+[Ramp]                        
+|                             
+| variable           typ                min                max
+dV/dt_r          1.00/0.05E-09      1.00/0.05E-09      1.00/0.05E-09
+dV/dt_f          1.00/0.05E-09      1.00/0.05E-09      1.00/0.05E-09
+R_load = 50                   
+|                             
+| End [Model] PCIE_out
+|
+|
+[End]
